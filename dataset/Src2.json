@@ -1,0 +1,95 @@
+{
+	"name": "Src2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "sites-prelevements-grand-public.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "id_ej",
+				"type": "String"
+			},
+			{
+				"name": "finess",
+				"type": "String"
+			},
+			{
+				"name": "rs",
+				"type": "String"
+			},
+			{
+				"name": "adresse",
+				"type": "String"
+			},
+			{
+				"name": "cpl_loc",
+				"type": "String"
+			},
+			{
+				"name": "do_prel",
+				"type": "String"
+			},
+			{
+				"name": "do_antigenic",
+				"type": "String"
+			},
+			{
+				"name": "longitude",
+				"type": "String"
+			},
+			{
+				"name": "latitude",
+				"type": "String"
+			},
+			{
+				"name": "mod_prel",
+				"type": "String"
+			},
+			{
+				"name": "public",
+				"type": "String"
+			},
+			{
+				"name": "horaire",
+				"type": "String"
+			},
+			{
+				"name": "horaire_prio",
+				"type": "String"
+			},
+			{
+				"name": "check_rdv",
+				"type": "String"
+			},
+			{
+				"name": "tel_rdv",
+				"type": "String"
+			},
+			{
+				"name": "web_rdv",
+				"type": "String"
+			},
+			{
+				"name": "date_modif",
+				"type": "String"
+			}
+		]
+	}
+}

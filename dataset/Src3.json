@@ -1,0 +1,75 @@
+{
+	"name": "Src3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "sp-variant-7j-fra-2021-03-18-17h20.csv"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "fra",
+				"type": "String"
+			},
+			{
+				"name": "semaine",
+				"type": "String"
+			},
+			{
+				"name": "cl_age90",
+				"type": "String"
+			},
+			{
+				"name": "Nb_tests_PCR_TA_crible",
+				"type": "String"
+			},
+			{
+				"name": "Prc_tests_PCR_TA_crible",
+				"type": "String"
+			},
+			{
+				"name": "Nb_susp_501Y_V1",
+				"type": "String"
+			},
+			{
+				"name": "Prc_susp_501Y_V1",
+				"type": "String"
+			},
+			{
+				"name": "Nb_susp_501Y_V2_3",
+				"type": "String"
+			},
+			{
+				"name": "Prc_susp_501Y_V2_3",
+				"type": "String"
+			},
+			{
+				"name": "Nb_susp_IND",
+				"type": "String"
+			},
+			{
+				"name": "Prc_susp_IND",
+				"type": "String"
+			},
+			{
+				"name": "Nb_susp_ABS",
+				"type": "String"
+			},
+			{
+				"name": "Prc_susp_ABS",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"name": "Src1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "sg-metro-opendata-2021-03-18-17h22.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "epci2020",
+				"type": "String"
+			},
+			{
+				"name": "semaine_glissante",
+				"type": "String"
+			},
+			{
+				"name": "clage_65",
+				"type": "String"
+			},
+			{
+				"name": "ti",
+				"type": "String"
+			}
+		]
+	}
+}
