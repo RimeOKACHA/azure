@@ -1,6 +1,622 @@
 {
 	"name": "pipeline2",
 	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "epci2020",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "epci2020",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "semaine_glissante",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "semaine_glissante",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "clage_65",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "clage_65",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ti",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ti",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Src1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Tar1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data2",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "id_ej",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "id_ej",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "finess",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "finess",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "rs",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rs",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "adresse",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "adresse",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cpl_loc",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "cpl_loc",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "do_prel",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "do_prel",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "do_antigenic",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "do_antigenic",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "longitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "longitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "latitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "mod_prel",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "mod_prel",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "public",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "public",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "horaire",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "horaire",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "horaire_prio",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "horaire_prio",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "check_rdv",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "check_rdv",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tel_rdv",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tel_rdv",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "web_rdv",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "web_rdv",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "date_modif",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "date_modif",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Src2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Tar2",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data3",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy data2",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "fra",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fra",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "semaine",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "semaine",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cl_age90",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "cl_age90",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nb_tests_PCR_TA_crible",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nb_tests_PCR_TA_crible",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prc_tests_PCR_TA_crible",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prc_tests_PCR_TA_crible",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nb_susp_501Y_V1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nb_susp_501Y_V1",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prc_susp_501Y_V1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prc_susp_501Y_V1",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nb_susp_501Y_V2_3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nb_susp_501Y_V2_3",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prc_susp_501Y_V2_3",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prc_susp_501Y_V2_3",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nb_susp_IND",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nb_susp_IND",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prc_susp_IND",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prc_susp_IND",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Nb_susp_ABS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Nb_susp_ABS",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Prc_susp_ABS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Prc_susp_ABS",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Src3",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Tar3",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
 		"annotations": []
 	}
 }
